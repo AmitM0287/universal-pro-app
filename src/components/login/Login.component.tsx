@@ -1,64 +1,83 @@
 import React from 'react';
 import './Login.component.css';
-import { Button, Checkbox, Form, type FormProps, Input } from 'antd';
+import { Form, Input, Button } from 'antd';
+import { LockOutlined, UserOutlined } from '@ant-design/icons';
 
 
-type FieldType = {
-	username?: string;
-	password?: string;
-	remember?: string;
-};
+const Login: React.FC = () => {
+	const [loginForm] = Form.useForm();
+	
+	const handleLogin = (values: object) => {
+		console.log('Received values of form: ', values);
+	};
 
-const onFinish: FormProps<FieldType>['onFinish'] = (values) => {
-	console.log('Success:', values);
-};
-
-const onFinishFailed: FormProps<FieldType>['onFinishFailed'] = (errorInfo) => {
-	console.log('Failed:', errorInfo);
-};
-
-const Login: React.FC = () => 
-	<div id='login-page'>
-		<h2> Universal Pro | Login </h2>
-		<div className='login-form'>
+	return (
+		<div id='login-page'>
+			<h2> Universal Pro Login </h2>
 			<Form
-				name="basic"
-				initialValues={{ remember: true }}
-				onFinish={onFinish}
-				onFinishFailed={onFinishFailed}
-				autoComplete="off"
+				name="normal_login"
+				className="login-form"
+				onFinish={handleLogin}
+				form={loginForm} 
 			>
-				<Form.Item<FieldType>
-					label="Username"
+				<Form.Item
 					name="username"
-					rules={[{ required: true, message: 'Please input your username!' }]}
+					rules={[
+						{ required: true, message: 'Please enter your username!' },
+						{ type: 'email', message: 'Please enter a valid email address!' }
+					]}
 				>
-					<Input />
+					<Input 
+						prefix={ <UserOutlined className="site-form-item-icon" /> } 
+						type='text'
+						placeholder="Please enter your username or email" 
+					/>
 				</Form.Item>
 
-				<Form.Item<FieldType>
-					label="Password"
+				<Form.Item
 					name="password"
-					rules={[{ required: true, message: 'Please input your password!' }]}
+					rules={[
+						{ required: true, message: 'Please enter your password!' },
+						{ min: 8, message: 'Password must be at least 8 characters long!' },
+						{ pattern: /(?=.*[a-z])/, message: 'Password must include at least one lowercase letter!' },
+						{ pattern: /(?=.*[A-Z])/, message: 'Password must include at least one uppercase letter!' },
+						{ pattern: /(?=.*\d)/, message: 'Password must include at least one number!' },
+						{ pattern: /(?=.*[!@#$%^&*])/, message: 'Password must include at least one special character!' }
+					]}
 				>
-					<Input.Password />
+					<Input.Password
+						prefix={ <LockOutlined className="site-form-item-icon" /> }
+						type="password"
+						placeholder="Please enter your password"
+					/>
 				</Form.Item>
-
-				<Form.Item<FieldType>
-					name="remember"
-					valuePropName="checked"
-				>
-					<Checkbox>Remember me</Checkbox>
-				</Form.Item>
-
+				
 				<Form.Item>
-					<Button type="primary" htmlType="submit">
-						Login
-					</Button>
+					<a href="signup">
+						New user? Signup!
+					</a>
+					<a href="resetPassword">
+						Forgot password
+					</a>
+				</Form.Item>
+
+				<Form.Item shouldUpdate>
+					{() => 
+						<Button
+							type="primary"
+							htmlType="submit"
+							disabled={
+								!loginForm.isFieldsTouched(true) ||
+								!!loginForm.getFieldsError().filter(({ errors }) => errors.length).length
+							}
+						>
+							Login
+						</Button>
+					}
 				</Form.Item>
 			</Form>
 		</div>
-	</div>
-;
+	);
+};
 
 export default Login;

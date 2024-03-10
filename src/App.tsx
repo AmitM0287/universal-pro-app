@@ -4,6 +4,7 @@ import Login from './components/login/Login.component';
 import Signup from './components/signup/Signup.component';
 import Logout from './components/logout/Logout.component';
 import Dashboard from './components/dashboard/Dashboard.component';
+import ResetPassword from './components/resetPassword/ResetPassword.component';
 
 
 function App() {
@@ -14,7 +15,9 @@ function App() {
 				<Route path='user/login' element={ <Login /> } />
 				<Route path='user/signup' element={ <Signup /> } />
 				<Route path='user/logout' element={ <Logout /> } />
+				<Route path='user/resetPassword' element={ <ResetPassword /> } />
 				<Route path='user/dashboard' element={ <Dashboard /> } />
+				<Route path='*' element={ <Navigate to={'user/login'} />} />
 			</Routes>
 		</BrowserRouter>
 	);

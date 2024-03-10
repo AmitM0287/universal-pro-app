@@ -1,7 +1,7 @@
 import React from 'react';
 import './Login.component.css';
 import { Form, Input, Button } from 'antd';
-import { LockOutlined, UserOutlined } from '@ant-design/icons';
+import { LockOutlined, MailOutlined } from '@ant-design/icons';
 
 
 const Login: React.FC = () => {
@@ -15,22 +15,21 @@ const Login: React.FC = () => {
 		<div id='login-page'>
 			<h2> Universal Pro Login </h2>
 			<Form
-				name="normal_login"
 				className="login-form"
 				onFinish={handleLogin}
 				form={loginForm} 
 			>
 				<Form.Item
-					name="username"
+					name="email"
 					rules={[
-						{ required: true, message: 'Please enter your username!' },
+						{ required: true, message: 'Please enter your email!' },
 						{ type: 'email', message: 'Please enter a valid email address!' }
 					]}
 				>
 					<Input 
-						prefix={ <UserOutlined className="site-form-item-icon" /> } 
+						prefix={ <MailOutlined className="site-form-item-icon" /> } 
 						type='text'
-						placeholder="Please enter your username or email" 
+						placeholder="Please enter your email" 
 					/>
 				</Form.Item>
 

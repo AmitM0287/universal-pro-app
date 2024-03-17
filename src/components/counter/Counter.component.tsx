@@ -1,22 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Counter.component.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { incremented, decremented, getCount } from '../../redux/slices/counter.slice';
 
 
 const Counter: React.FC = () => {
-	const [count, setCount] = useState(0);
+	const dispatch = useDispatch();
+	const { count } = useSelector(getCount);
+
 	const handleIncrement = () => {
-		setCount(count + 1);
+		dispatch(incremented());
 	};
+
 	const handleDecrement = () => {
-		setCount(count - 1);
+		dispatch(decremented());
 	};
 
 	return (
 		<div className='counter'>
-			<h2>Welcome, to counter app</h2>
-			<h4>{count}</h4>
-			<button type="button" onClick={handleIncrement}>Increment</button>
-			<button type="button" onClick={handleDecrement}>Decrement</button>
+			<h2> Welcome to the counter app </h2>
+			<h4> { count } </h4>
+			<button type="button" onClick={ handleIncrement }> Increment </button>
+			<button type="button" onClick={ handleDecrement }> Decrement </button>
 		</div>
 	);
 };

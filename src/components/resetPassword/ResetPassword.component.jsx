@@ -1,49 +1,23 @@
-import React from 'react';
-import './Signup.component.css';
+import './ResetPassword.component.css';
 import { Form, Input, Button } from 'antd';
-import { LockOutlined, UserOutlined, MailOutlined } from '@ant-design/icons';
+import { LockOutlined, MailOutlined } from '@ant-design/icons';
 
 
-const Signup: React.FC = () => {
-	const [signupForm] = Form.useForm();
+const ResetPassword = () => {
+	const [ResetPasswordForm] = Form.useForm();
 	
-	const handleSignup = (values: object) => {
+	const handleResetPassword = (values) => {
 		console.log('Received values of form: ', values);
 	};
 
 	return (
-		<div id='signup-page'>
-			<h2> Universal Pro Signup </h2>
+		<div id='reset-password-page'>
+			<h2> Universal Pro Reset Password </h2>
 			<Form
-				className="signup-form"
-				onFinish={handleSignup}
-				form={signupForm} 
+				name="reset-pass-form"
+				onFinish={handleResetPassword}
+				form={ResetPasswordForm} 
 			>
-				<Form.Item
-					name="firstname"
-					rules={[
-						{ required: true, message: 'Please enter your firstname!' },
-					]}
-				>
-					<Input 
-						prefix={ <UserOutlined className="site-form-item-icon" /> } 
-						type='text'
-						placeholder="Please enter your firstname" 
-					/>
-				</Form.Item>
-				<Form.Item
-					name="lastname"
-					rules={[
-						{ required: true, message: 'Please enter your lastname!' },
-					]}
-				>
-					<Input 
-						prefix={ <UserOutlined className="site-form-item-icon" /> } 
-						type='text'
-						placeholder="Please enter your lastname" 
-					/>
-				</Form.Item>
-
 				<Form.Item
 					name="email"
 					rules={[
@@ -78,7 +52,7 @@ const Signup: React.FC = () => {
 				
 				<Form.Item>
 					<a href="login">
-						Existing user? Login!
+						Remember password? Login!
 					</a>
 				</Form.Item>
 
@@ -88,11 +62,11 @@ const Signup: React.FC = () => {
 							type="primary"
 							htmlType="submit"
 							disabled={
-								!signupForm.isFieldsTouched(true) ||
-								!!signupForm.getFieldsError().filter(({ errors }) => errors.length).length
+								!ResetPasswordForm.isFieldsTouched(true) ||
+								!!ResetPasswordForm.getFieldsError().filter(({ errors }) => errors.length).length
 							}
 						>
-							Signup
+							Reset Password
 						</Button>
 					}
 				</Form.Item>
@@ -101,4 +75,4 @@ const Signup: React.FC = () => {
 	);
 };
 
-export default Signup;
+export default ResetPassword;

@@ -1,9 +1,8 @@
-import React from 'react';
 import './Dashboard.component.css';
 import { Card } from 'antd';
 
 
-const Dashboard: React.FC = () => {
+const Dashboard = () => {
 	console.log('hey');
 	return (
 		<div className='dashboard'>
@@ -13,4 +12,5 @@ const Dashboard: React.FC = () => {
 		</div>
 	);
 };
+
 export default Dashboard;

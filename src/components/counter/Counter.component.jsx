@@ -1,10 +1,9 @@
-import React from 'react';
 import './Counter.component.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { incremented, decremented, getCount } from '../../redux/slices/counter.slice';
 
 
-const Counter: React.FC = () => {
+const Counter = () => {
 	const dispatch = useDispatch();
 	const { count } = useSelector(getCount);
 

@@ -5,6 +5,7 @@ import Signup from './components/signup/Signup.component';
 import Dashboard from './components/dashboard/Dashboard.component';
 import ResetPassword from './components/resetPassword/ResetPassword.component';
 import Counter from './components/counter/Counter.component';
+import Dummpy from './components/dummy/Dummy.component';
 
 
 function App() {
@@ -16,7 +17,8 @@ function App() {
 				<Route path='user/signup' element={ <Signup /> } />
 				<Route path='user/resetPassword' element={ <ResetPassword /> } />
 				<Route path='user/dashboard' element={ <Dashboard /> } />
-				<Route path='counter-app' element={ <Counter /> } />
+				<Route path='counterApp' element={ <Counter /> } />
+				<Route path='dummyApp' element={ <Dummpy /> } />
 				<Route path='*' element={ <Navigate to={'user/login'} />} />
 			</Routes>
 		</BrowserRouter>

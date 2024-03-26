@@ -1,25 +1,22 @@
-
-
-import React from 'react';
-import './ResetPassword.component.css';
+import './Login.component.css';
 import { Form, Input, Button } from 'antd';
 import { LockOutlined, MailOutlined } from '@ant-design/icons';
 
 
-const ResetPassword: React.FC = () => {
-	const [ResetPasswordForm] = Form.useForm();
+const Login = () => {
+	const [loginForm] = Form.useForm();
 	
-	const handleResetPassword = (values: object) => {
+	const handleLogin = (values) => {
 		console.log('Received values of form: ', values);
 	};
 
 	return (
-		<div id='reset-password-page'>
-			<h2> Universal Pro Reset Password </h2>
+		<div id='login-page'>
+			<h2> Universal Pro Login </h2>
 			<Form
-				name="reset-pass-form"
-				onFinish={handleResetPassword}
-				form={ResetPasswordForm} 
+				className="login-form"
+				onFinish={handleLogin}
+				form={loginForm} 
 			>
 				<Form.Item
 					name="email"
@@ -54,8 +51,11 @@ const ResetPassword: React.FC = () => {
 				</Form.Item>
 				
 				<Form.Item>
-					<a href="login">
-						Remember password? Login!
+					<a href="signup">
+						New user? Signup!
+					</a>
+					<a href="resetPassword">
+						Forgot password
 					</a>
 				</Form.Item>
 
@@ -65,11 +65,11 @@ const ResetPassword: React.FC = () => {
 							type="primary"
 							htmlType="submit"
 							disabled={
-								!ResetPasswordForm.isFieldsTouched(true) ||
-								!!ResetPasswordForm.getFieldsError().filter(({ errors }) => errors.length).length
+								!loginForm.isFieldsTouched(true) ||
+								!!loginForm.getFieldsError().filter(({ errors }) => errors.length).length
 							}
 						>
-							Reset Password
+							Login
 						</Button>
 					}
 				</Form.Item>
@@ -78,4 +78,4 @@ const ResetPassword: React.FC = () => {
 	);
 };
 
-export default ResetPassword;
+export default Login;

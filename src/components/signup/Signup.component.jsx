@@ -1,24 +1,48 @@
-import React from 'react';
-import './Login.component.css';
+import './Signup.component.css';
 import { Form, Input, Button } from 'antd';
-import { LockOutlined, MailOutlined } from '@ant-design/icons';
+import { LockOutlined, UserOutlined, MailOutlined } from '@ant-design/icons';
 
 
-const Login: React.FC = () => {
-	const [loginForm] = Form.useForm();
+const Signup = () => {
+	const [signupForm] = Form.useForm();
 	
-	const handleLogin = (values: object) => {
+	const handleSignup = (values) => {
 		console.log('Received values of form: ', values);
 	};
 
 	return (
-		<div id='login-page'>
-			<h2> Universal Pro Login </h2>
+		<div id='signup-page'>
+			<h2> Universal Pro Signup </h2>
 			<Form
-				className="login-form"
-				onFinish={handleLogin}
-				form={loginForm} 
+				className="signup-form"
+				onFinish={handleSignup}
+				form={signupForm} 
 			>
+				<Form.Item
+					name="firstname"
+					rules={[
+						{ required: true, message: 'Please enter your firstname!' },
+					]}
+				>
+					<Input 
+						prefix={ <UserOutlined className="site-form-item-icon" /> } 
+						type='text'
+						placeholder="Please enter your firstname" 
+					/>
+				</Form.Item>
+				<Form.Item
+					name="lastname"
+					rules={[
+						{ required: true, message: 'Please enter your lastname!' },
+					]}
+				>
+					<Input 
+						prefix={ <UserOutlined className="site-form-item-icon" /> } 
+						type='text'
+						placeholder="Please enter your lastname" 
+					/>
+				</Form.Item>
+
 				<Form.Item
 					name="email"
 					rules={[
@@ -52,11 +76,8 @@ const Login: React.FC = () => {
 				</Form.Item>
 				
 				<Form.Item>
-					<a href="signup">
-						New user? Signup!
-					</a>
-					<a href="resetPassword">
-						Forgot password
+					<a href="login">
+						Existing user? Login!
 					</a>
 				</Form.Item>
 
@@ -66,11 +87,11 @@ const Login: React.FC = () => {
 							type="primary"
 							htmlType="submit"
 							disabled={
-								!loginForm.isFieldsTouched(true) ||
-								!!loginForm.getFieldsError().filter(({ errors }) => errors.length).length
+								!signupForm.isFieldsTouched(true) ||
+								!!signupForm.getFieldsError().filter(({ errors }) => errors.length).length
 							}
 						>
-							Login
+							Signup
 						</Button>
 					}
 				</Form.Item>
@@ -79,4 +100,4 @@ const Login: React.FC = () => {
 	);
 };
 
-export default Login;
+export default Signup;

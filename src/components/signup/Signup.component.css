@@ -12,16 +12,13 @@
 
     Form {
         width: 80%;
-
         .ant-form-item-control-input-content {
             display: flex;
             justify-content: space-between;
         }
-
         .ant-input-prefix {
             padding-right: 1vmin;
         }
-
         Button {
             width: 100%;
         }

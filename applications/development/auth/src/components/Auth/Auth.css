@@ -1,0 +1,121 @@
+.auth-page {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+    width: 100%;
+    background: var(--bg-color-default);
+
+    .auth-form {
+        border: var(--border-width-default) solid var(--border-color-default);
+        border-radius: var(--border-redius-large);
+        width: 80vw;
+        max-width: 400px;
+        padding: 0vmax 2vmax 2vmax 2vmax;
+
+        h3 {
+            color: var(--font-color-dark);
+            text-align: center;
+        }
+
+        .ant-btn {
+            width: 100%;
+            background: var(--bg-color-dark);
+            color: var(--font-color-default);
+            border: var(--border-width-default) solid var(--border-color-default);
+            border-radius: var(--border-redius-small);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ant-btn:hover {
+            background: var(--bg-color-dark);
+            color: var(--font-color-blue);
+        }
+
+        p {
+            display: flex;
+            text-align: center;
+            align-items: center;
+            color: var(--font-color-dark);
+            .line {
+                width: 100%;
+                height: var(--border-width-default);
+                background: var(--border-color-default);
+            }
+            .or {
+                padding-left: 1vmin;
+                padding-right: 1vmin;
+            }
+        }
+
+        .ant-segmented {
+            width: 100%;
+            margin-bottom: 1.8vmax;
+            background: var(--font-color-default);
+            border-radius: var(--border-redius-small);
+            .ant-segmented-group {
+                .ant-segmented-item {
+                    width: 50%;
+                    color: var(--font-color-dark);
+                    border-radius: var(--border-redius-small);
+                    font-weight: 700;
+                }
+                .ant-segmented-item:hover {
+                    color: var(--font-color-blue);
+                }
+                .ant-segmented-item-selected {
+                    background: var(--bg-color-dark);
+                    color: var(--font-color-default);
+                }
+            }
+        }
+
+        form {
+            Item {
+                flex-direction: column;
+            }
+            .ant-form-item {
+                margin-bottom: 1.8vmax;
+            }
+            .ant-form-item-control-input-content {
+                background: var(--font-color-default);
+                border-radius: var(--border-redius-small);
+            }
+            .ant-form-item-explain-error {
+                font-size: var(--font-size-medium);
+            }
+            .ant-input::placeholder {
+                color: var(--font-color-dark);
+            }
+        }
+
+        .other-options {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--font-color-dark);
+            a {
+                text-decoration: none;
+                color: var(--font-color-default);
+                margin-bottom: 1.8vmax;
+                margin-top: 1.8vmax;
+            }
+            a:hover {
+                text-decoration: underline;
+                color: var(--font-color-blue);
+            }
+            span {
+                color: var(--font-color-dark);
+            }
+        }
+
+        .MuiSvgIcon-fontSizeMedium {
+            width: var(--icon-width-default);
+            height: var(--icon-height-default);
+            cursor: pointer;
+        }
+    }
+}

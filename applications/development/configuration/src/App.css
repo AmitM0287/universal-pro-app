@@ -1,0 +1,29 @@
+#root {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+
+	/* backgrounds props */
+	--bg-color-dark: #1c2128;
+    --bg-color-default: #22272e;
+
+	/* fonts props */
+	--font-color-dark: #717e8b;
+	--font-color-default: #c5d1de;
+	--font-color-blue: #478be6;
+
+	--font-size-medium: 1.5vmin;
+
+	/* borders props */
+	--border-color-default: #444c56;
+
+	--border-width-default: 1px;
+
+	--border-redius-small: 8px;
+	--border-redius-large: 16px;
+
+	/* icons props */
+	--icon-width-default: 20px;
+	--icon-height-default: 20px;
+}

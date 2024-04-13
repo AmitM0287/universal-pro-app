@@ -11,7 +11,7 @@ const server = http.createServer(app);
 require('dotenv').config();
 
 /* view engine */
-app.set('views', path.join(__dirname, 'applications'));
+app.set('views', path.resolve('./applications'));
 app.engine('html', ejs.renderFile);
 app.set('view engine', 'html');
 

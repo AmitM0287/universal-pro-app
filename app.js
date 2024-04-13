@@ -4,6 +4,7 @@ const express = require('express');
 const cors = require('cors');
 const ejs = require('ejs');
 
+/* app server */
 const app = express();
 const server = http.createServer(app);
 
@@ -32,7 +33,7 @@ app.use(express.static(path.resolve('./applications/production/auth')));
 /* routes */
 app.get('/auth/*', (req, res) => res.render('production/auth/index'));
 
-/* server */
+/* server listening */
 server.listen(process.env.PORT, () => {
 	console.log(`Server is running on port ${process.env.PORT} ...`);
 });

@@ -16,10 +16,10 @@ const Auth = () => {
 
 	useEffect(() => {
 		switch(location.pathname) {
-		case '/register':
+		case '/auth/register':
 			setAuthState('Register');
 			break;
-		case '/forgot-password':
+		case '/auth/forgot-password':
 			setAuthState('Forgot Password');
 			break;
 		default:
@@ -29,25 +29,25 @@ const Auth = () => {
 	}, [location]);
 
 	const handleSegmentedValue = (value) => {
-		value === 'Login' ? navigate('/login') : navigate('/register');
+		value === 'Login' ? navigate('/auth/login') : navigate('/auth/register');
 	};
 
 	const handleLogin = (e) => {
 		e.preventDefault();
 		setAuthState('Login');
-		navigate('/login');
+		navigate('/auth/login');
 	};
 
 	const handleRegister = (e) => {
 		e.preventDefault();
 		setAuthState('Register');
-		navigate('/register');
+		navigate('/auth/register');
 	};
 
 	const handleForgotPassword = (e) => {
 		e.preventDefault();
 		setAuthState('Forgot Password');
-		navigate('/forgot-password');
+		navigate('/auth/forgot-password');
 	};
 
 	return (

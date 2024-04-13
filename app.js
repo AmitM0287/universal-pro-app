@@ -27,10 +27,10 @@ app.use((req, res, next) => {
 	next();
 });
 app.use(express.static(path.resolve('./public')));
-app.use(express.static(path.resolve('./applications/production/auth/')));
+app.use(express.static(path.resolve('./applications/production/auth')));
 
 /* routes */
-app.get('/', (req, res) => res.render('applications/production/auth/index'));
+app.get('/auth/*', (req, res) => res.render('production/auth/index'));
 
 /* server */
 server.listen(process.env.PORT, () => {
